@@ -46,8 +46,17 @@
        key)))
 
 (defun count-instances (obj lsts)
+  "Count the presence of `obj' inside of `lsts'."
   (labels ((instance (lst)
 	     (if (consp lst)
 		 (+ (if (eq (car lst) obj) 1 0)
 		    (instance (cdr lst))))))
     (mapcar #'instance lsts)))
+
+(defun my-reverse-lst (lst)
+  "Tail reverse function for list."
+  (labels ((rev (lst acc)
+	     (if (null lst)
+		 acc
+		 (rev (cdr lst) (cons (car lst) acc)))))
+    (rev lst nil)))
