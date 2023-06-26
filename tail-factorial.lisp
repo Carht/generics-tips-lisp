@@ -5,6 +5,6 @@
 	     (if (zerop x)
 		 acc
 		 (factorial (- x 1) (* x acc)))))
-    (factorial x 1)))
+    (factorial n 1)))
 
 (fact 3456)
